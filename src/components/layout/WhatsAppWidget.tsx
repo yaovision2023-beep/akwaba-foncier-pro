@@ -1,0 +1,18 @@
+import { whatsappLink } from "@/lib/constants";
+
+export function WhatsAppWidget() {
+  return (
+    <a
+      href={whatsappLink()}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="fixed bottom-5 right-5 z-40 flex items-center gap-2 rounded-full bg-forest px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-forest/30 transition-transform hover:scale-105 hover:bg-forest-dark sm:bottom-6 sm:right-6"
+    >
+      <svg viewBox="0 0 24 24" className="h-5 w-5 flex-shrink-0" fill="currentColor" aria-hidden="true">
+        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.36a9.9 9.9 0 004.62 1.14h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0012.04 2zm5.8 14.05c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.11.11-1.79-.11-.41-.13-.94-.31-1.62-.6-2.85-1.23-4.71-4.09-4.85-4.28-.14-.19-1.16-1.54-1.16-2.94 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36h.55c.18 0 .41-.07.64.49.24.58.81 2 .88 2.14.07.15.12.32.02.51-.1.19-.15.31-.29.47-.15.17-.31.37-.44.5-.15.14-.3.3-.13.59.17.29.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.35 1.46.29.15.46.13.63-.05.17-.19.72-.85.92-1.14.19-.29.38-.24.64-.15.26.1 1.65.78 1.94.92.29.14.48.22.55.34.07.13.07.72-.17 1.4z" />
+      </svg>
+      <span className="hidden sm:inline">Besoin d&apos;aide ? Contactez-nous</span>
+      <span className="sm:hidden">Contact</span>
+    </a>
+  );
+}
