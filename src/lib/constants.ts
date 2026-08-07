@@ -2,7 +2,7 @@ export const COMPANY = {
   name: "Akwaba Foncier Pro",
   parentCompany: "CHIM IVOIRE GROUP SARL (CIG)",
   rccm: "CI-ABJ-03-2024-B13-07254",
-  whatsappNumber: "225556735146", // +225 05 56 73 51 46
+  whatsappNumber: "2250748897011", // +225 07 48 89 70 11 (le 0 est conservé depuis la réforme 2021)
   whatsappMessage: "Bonjour, je souhaite avoir des informations sur vos parcelles.",
 };
 
