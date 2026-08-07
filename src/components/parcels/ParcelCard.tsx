@@ -24,7 +24,7 @@ export function ParcelCard({ parcel }: { parcel: Parcel }) {
   return (
     <Link
       href={`/parcelles/${parcel.slug}`}
-      className="group flex flex-col overflow-hidden rounded-xl border border-forest/10 bg-white shadow-sm transition-shadow hover:shadow-lg"
+      className="group flex h-full flex-col overflow-hidden rounded-xl border border-forest/10 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/30 hover:shadow-xl"
     >
       <div className="relative h-48 w-full">
         {parcel.images[0] ? (

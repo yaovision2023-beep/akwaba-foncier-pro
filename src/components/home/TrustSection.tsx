@@ -1,4 +1,5 @@
 import { COMPANY } from "@/lib/constants";
+import { Reveal } from "@/components/motion/Reveal";
 
 const REASONS = [
   {
@@ -26,20 +27,21 @@ export function TrustSection() {
   return (
     <section className="bg-white py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-gold">
             Notre engagement
           </p>
           <h2 className="mt-2 text-3xl font-bold text-forest sm:text-4xl">
             Pourquoi nous faire confiance
           </h2>
-        </div>
+        </Reveal>
 
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {REASONS.map((reason) => (
-            <div
+          {REASONS.map((reason, index) => (
+            <Reveal
               key={reason.title}
-              className="flex gap-4 rounded-xl border border-forest/10 bg-cream/50 p-6"
+              delay={index * 0.08}
+              className="flex gap-4 rounded-xl border border-forest/10 bg-cream/50 p-6 transition-shadow hover:shadow-md"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -62,7 +64,7 @@ export function TrustSection() {
                   {reason.detail}
                 </p>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

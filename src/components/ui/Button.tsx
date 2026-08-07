@@ -11,7 +11,7 @@ const VARIANTS = {
 type Variant = keyof typeof VARIANTS;
 
 const BASE =
-  "inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold tracking-wide transition-colors";
+  "inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold tracking-wide transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0";
 
 export function LinkButton({
   href,
