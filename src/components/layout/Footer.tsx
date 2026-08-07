@@ -62,6 +62,9 @@ export function Footer() {
             Toute transaction transite par un notaire partenaire ; aucun
             paiement n&apos;est jamais encaissé directement par un intermédiaire.
           </p>
+          <p className="mt-2 text-xs text-cream/40">
+            Une entreprise du groupe CHIM IVOIRE GROUP (CIG).
+          </p>
         </div>
       </div>
     </footer>

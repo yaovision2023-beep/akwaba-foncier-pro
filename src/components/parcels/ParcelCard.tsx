@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Parcel } from "@/types/parcel";
 import { formatFcfa } from "@/lib/constants";
+import { getCategoryInfo } from "@/data/categories";
 import { ParcelStatusBadge } from "./ParcelStatusBadge";
 import { ParcelPlaceholder } from "./ParcelPlaceholder";
 
@@ -43,6 +44,9 @@ export function ParcelCard({ parcel }: { parcel: Parcel }) {
       </div>
 
       <div className="flex flex-1 flex-col gap-2 p-5">
+        <span className="w-fit rounded bg-forest/5 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-forest-light">
+          {getCategoryInfo(parcel.category).shortLabel}
+        </span>
         <h3 className="text-lg font-bold text-forest">{parcel.name}</h3>
         <p className="text-sm text-forest-light">{parcel.location}</p>
         <p className="text-sm text-forest-light">{parcel.area}</p>

@@ -1,5 +1,11 @@
 export type VerificationStatus = "verifie" | "en_cours";
 
+export type ParcelCategory =
+  | "terrains-agricoles"
+  | "lots-urbains"
+  | "entrepots-industriels"
+  | "residences-appartements";
+
 export interface ParcelLot {
   label: string;
   size: string;
@@ -9,6 +15,7 @@ export interface ParcelLot {
 export interface Parcel {
   slug: string;
   name: string;
+  category: ParcelCategory;
   location: string;
   zone: string;
   area: string;

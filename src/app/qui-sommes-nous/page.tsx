@@ -11,7 +11,7 @@ const SECTIONS: { id: string; title: string; paragraphs: string[] | null }[] = [
     id: "qui-sommes-nous",
     title: "Qui sommes-nous",
     paragraphs: [
-      "Akwaba Foncier Pro est la plateforme d'intermédiation foncière de CHIM IVOIRE GROUP SARL (CIG), structure enregistrée à Abidjan, Cocody, sous le RCCM CI-ABJ-03-2024-B13-07254. Nous accompagnons la diaspora ivoirienne et les investisseurs locaux dans l'acquisition de terrains, lots et îlots sécurisés partout en Côte d'Ivoire, où le besoin se présente. Au-delà de la vente et de la location, nous structurons également des projets de construction sur mesure — immeubles et résidences en copropriété, montés en SCI selon les besoins du client. Notre différence : chaque dossier est vérifié avant d'être présenté, et chaque paiement transite exclusivement par un notaire partenaire.",
+      "Akwaba Foncier Pro est la plateforme d'intermédiation foncière et immobilière de CHIM IVOIRE GROUP SARL (CIG), structure enregistrée à Abidjan, Cocody, sous le RCCM CI-ABJ-03-2024-B13-07254. Nous accompagnons la diaspora ivoirienne et les investisseurs locaux dans l'acquisition de terrains agricoles, de lots et îlots pour la construction urbaine, d'entrepôts pour les entreprises, ainsi que de résidences et appartements — partout en Côte d'Ivoire, où le besoin se présente. Au-delà de la vente et de la location, nous structurons également des projets de construction sur mesure — immeubles et résidences en copropriété, montés en SCI selon les besoins du client. Notre différence : chaque dossier est vérifié avant d'être présenté, et chaque paiement transite exclusivement par un notaire partenaire.",
     ],
   },
   {

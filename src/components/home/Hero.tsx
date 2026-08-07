@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { LinkButton } from "@/components/ui/Button";
 import { TrustBadges } from "@/components/layout/TrustBadges";
+import { CATEGORIES } from "@/data/categories";
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -67,10 +68,28 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-6 max-w-2xl text-base leading-relaxed text-cream/85 sm:text-lg"
         >
-          Achetez un terrain sécurisé en Côte d&apos;Ivoire en toute confiance —
-          titres vérifiés, transactions encadrées par notaire, accompagnement
-          dédié à la diaspora comme aux acheteurs locaux.
+          Terrain agricole, lot à bâtir, entrepôt ou résidence : trouvez une
+          opportunité foncière et immobilière sécurisée en Côte
+          d&apos;Ivoire — titres vérifiés, transactions encadrées par
+          notaire, accompagnement dédié à la diaspora comme aux acheteurs
+          locaux.
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
+          className="mt-6 flex flex-wrap items-center justify-center gap-2"
+        >
+          {CATEGORIES.map((cat) => (
+            <span
+              key={cat.slug}
+              className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium text-cream/80"
+            >
+              {cat.shortLabel}
+            </span>
+          ))}
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}

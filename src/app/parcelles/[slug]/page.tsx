@@ -7,6 +7,7 @@ import { ParcelPlaceholder } from "@/components/parcels/ParcelPlaceholder";
 import { TrustBadges } from "@/components/layout/TrustBadges";
 import { LinkButton } from "@/components/ui/Button";
 import { formatFcfa, whatsappLink } from "@/lib/constants";
+import { getCategoryInfo } from "@/data/categories";
 
 export function generateStaticParams() {
   return parcels.map((p) => ({ slug: p.slug }));
@@ -63,6 +64,12 @@ export default function ParcelDetailPage({
               <p className="mt-1 text-sm text-forest-light">{parcel.location}</p>
 
               <dl className="mt-6 space-y-4 border-t border-forest/10 pt-6">
+                <div className="flex justify-between text-sm">
+                  <dt className="text-forest-light">Catégorie</dt>
+                  <dd className="text-right font-medium text-forest">
+                    {getCategoryInfo(parcel.category).label}
+                  </dd>
+                </div>
                 <div className="flex justify-between text-sm">
                   <dt className="text-forest-light">Superficie</dt>
                   <dd className="text-right font-medium text-forest">{parcel.area}</dd>

@@ -4,6 +4,7 @@ export const parcels: Parcel[] = [
   {
     slug: "kotchi-mpo",
     name: "Kotchi-M'po",
+    category: "terrains-agricoles",
     location: "Rubino, Agboville",
     zone: "Agboville / Agnéby-Tiassa",
     area: "7ha 20a 56ca",
@@ -18,6 +19,7 @@ export const parcels: Parcel[] = [
   {
     slug: "aboude-mandeke",
     name: "Aboudé-Mandéké",
+    category: "terrains-agricoles",
     location: "Aboudé, Agboville",
     zone: "Agboville / Agnéby-Tiassa",
     area: "26ha 99a 11ca",
@@ -32,6 +34,7 @@ export const parcels: Parcel[] = [
   {
     slug: "grand-yapo",
     name: "Grand-Yapo",
+    category: "terrains-agricoles",
     location: "Axe Abidjan-Agboville",
     zone: "Axe Abidjan-Agboville",
     area: "20 hectares",
@@ -47,6 +50,7 @@ export const parcels: Parcel[] = [
   {
     slug: "lots-route-jacqueville",
     name: "Lots route de Jacqueville",
+    category: "lots-urbains",
     location: "Route de Jacqueville",
     zone: "Jacqueville",
     area: "Lots de 500m² (ACD global 12ha)",
