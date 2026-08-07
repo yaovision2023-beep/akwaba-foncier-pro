@@ -12,8 +12,8 @@ export function StatsSection() {
     },
     {
       value: siteStats.zonesCovered.length,
-      label: "Zones couvertes",
-      caption: siteStats.zonesCovered.join(" · "),
+      label: "Zones en stock actuellement",
+      caption: `${siteStats.zonesCovered.join(" · ")} — intervention sur toute la Côte d'Ivoire`,
     },
   ];
 

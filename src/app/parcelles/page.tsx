@@ -6,7 +6,7 @@ import { TrustBadges } from "@/components/layout/TrustBadges";
 export const metadata: Metadata = {
   title: "Nos parcelles — Akwaba Foncier Pro",
   description:
-    "Découvrez nos terrains vérifiés en Côte d'Ivoire : Agboville, Agnéby-Tiassa, axe Abidjan-Agboville, Jacqueville.",
+    "Nos terrains actuellement disponibles, vérifiés, à Agboville, Agnéby-Tiassa, axe Abidjan-Agboville et Jacqueville — Akwaba Foncier Pro intervient sur toute la Côte d'Ivoire.",
 };
 
 export default function ParcellesPage() {
@@ -22,7 +22,10 @@ export default function ParcellesPage() {
           </h1>
           <p className="mt-4 text-cream/80">
             Chaque parcelle listée ci-dessous a fait l&apos;objet d&apos;une
-            vérification de son titre avant publication.
+            vérification de son titre avant publication. Notre stock actuel
+            se situe à Agboville, Bingerville et Jacqueville — nous
+            intervenons cependant partout en Côte d&apos;Ivoire, où le
+            besoin se présente.
           </p>
         </div>
       </section>
