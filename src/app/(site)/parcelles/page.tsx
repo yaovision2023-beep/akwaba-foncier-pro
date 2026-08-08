@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { parcels } from "@/data/parcels";
+import { getAllParcels } from "@/lib/sanity/queries";
 import { ParcelCategoryFilter } from "@/components/parcels/ParcelCategoryFilter";
 import { TrustBar } from "@/components/layout/TrustBar";
 
@@ -9,11 +9,15 @@ export const metadata: Metadata = {
     "Terrains agricoles, lots urbains, entrepôts industriels et résidences vérifiés en Côte d'Ivoire — Akwaba Foncier Pro intervient sur tout le territoire.",
 };
 
-export default function ParcellesPage({
+export const revalidate = 60;
+
+export default async function ParcellesPage({
   searchParams,
 }: {
   searchParams: { categorie?: string };
 }) {
+  const parcels = await getAllParcels();
+
   return (
     <div className="bg-cream">
       <section className="bg-forest-dark pb-16 pt-36 text-center sm:pt-40">

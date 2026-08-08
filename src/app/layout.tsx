@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { WhatsAppWidget } from "@/components/layout/WhatsAppWidget";
-import { MotionProvider } from "@/components/motion/MotionProvider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const fraunces = Fraunces({
@@ -27,16 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body
-        className={`${inter.variable} ${fraunces.variable} flex min-h-screen flex-col antialiased`}
-      >
-        <MotionProvider>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <WhatsAppWidget />
-        </MotionProvider>
-      </body>
+      <body className={`${inter.variable} ${fraunces.variable} antialiased`}>{children}</body>
     </html>
   );
 }

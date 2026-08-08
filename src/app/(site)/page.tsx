@@ -5,11 +5,16 @@ import { TrustSection } from "@/components/home/TrustSection";
 import { DiasporaSpotlight } from "@/components/home/DiasporaSpotlight";
 import { ClosingCta } from "@/components/home/ClosingCta";
 import { TrustBar } from "@/components/layout/TrustBar";
+import { getSiteStats } from "@/lib/sanity/queries";
 
-export default function HomePage() {
+export const revalidate = 60;
+
+export default async function HomePage() {
+  const stats = await getSiteStats();
+
   return (
     <>
-      <Hero />
+      <Hero stats={stats} />
       <TrustBar />
       <CategoryShowcase />
       <FeaturedParcels />

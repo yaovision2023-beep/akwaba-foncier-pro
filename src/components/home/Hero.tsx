@@ -4,16 +4,19 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { LinkButton } from "@/components/ui/Button";
 import { CATEGORIES } from "@/data/categories";
-import { siteStats } from "@/data/parcels";
 import { AnimatedCounter } from "@/components/motion/AnimatedCounter";
 
-const STATS = [
-  { value: siteStats.totalParcels, suffix: "", label: "Terrains vérifiés en ligne" },
-  { value: siteStats.verifiedPercent, suffix: "%", label: "Dossiers déjà sécurisés" },
-  { value: CATEGORIES.length, suffix: "", label: "Catégories d'opportunités" },
-];
+export interface HeroStats {
+  totalParcels: number;
+  verifiedPercent: number;
+}
 
-export function Hero() {
+export function Hero({ stats }: { stats: HeroStats }) {
+  const STATS = [
+    { value: stats.totalParcels, suffix: "", label: "Terrains vérifiés en ligne" },
+    { value: stats.verifiedPercent, suffix: "%", label: "Dossiers déjà sécurisés" },
+    { value: CATEGORIES.length, suffix: "", label: "Catégories d'opportunités" },
+  ];
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,

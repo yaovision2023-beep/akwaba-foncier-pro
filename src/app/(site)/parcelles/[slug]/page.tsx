@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { parcels, getParcelBySlug } from "@/data/parcels";
+import Image from "next/image";
+import { getAllParcelSlugs, getParcelBySlug } from "@/lib/sanity/queries";
 import { ParcelStatusBadge } from "@/components/parcels/ParcelStatusBadge";
 import { ParcelPlaceholder } from "@/components/parcels/ParcelPlaceholder";
 import { TrustBar } from "@/components/layout/TrustBar";
@@ -9,16 +10,19 @@ import { LinkButton } from "@/components/ui/Button";
 import { formatFcfa, whatsappLink } from "@/lib/constants";
 import { getCategoryInfo } from "@/data/categories";
 
-export function generateStaticParams() {
-  return parcels.map((p) => ({ slug: p.slug }));
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const slugs = await getAllParcelSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
-}): Metadata {
-  const parcel = getParcelBySlug(params.slug);
+}): Promise<Metadata> {
+  const parcel = await getParcelBySlug(params.slug);
   if (!parcel) return {};
   return {
     title: `${parcel.name} — Akwaba Foncier Pro`,
@@ -26,12 +30,12 @@ export function generateMetadata({
   };
 }
 
-export default function ParcelDetailPage({
+export default async function ParcelDetailPage({
   params,
 }: {
   params: { slug: string };
 }) {
-  const parcel = getParcelBySlug(params.slug);
+  const parcel = await getParcelBySlug(params.slug);
   if (!parcel) notFound();
 
   return (
@@ -57,8 +61,18 @@ export default function ParcelDetailPage({
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-5">
           <div className="lg:col-span-3">
-            <div className="h-72 overflow-hidden rounded-sm sm:h-96">
-              <ParcelPlaceholder zone={parcel.zone} />
+            <div className="relative h-72 overflow-hidden rounded-sm sm:h-96">
+              {parcel.images[0] ? (
+                <Image
+                  src={parcel.images[0]}
+                  alt={parcel.name}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              ) : (
+                <ParcelPlaceholder zone={parcel.zone} />
+              )}
             </div>
             <div className="mt-8 rounded-xl border border-forest/10 bg-white p-6">
               <h2 className="font-serif text-xl text-forest">Description</h2>

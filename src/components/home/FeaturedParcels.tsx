@@ -1,9 +1,13 @@
-import { featuredParcels } from "@/data/parcels";
+import { getFeaturedParcels } from "@/lib/sanity/queries";
 import { LinkButton } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 import { ParcelCarousel } from "@/components/home/ParcelCarousel";
 
-export function FeaturedParcels() {
+export async function FeaturedParcels() {
+  const featuredParcels = await getFeaturedParcels();
+
+  if (featuredParcels.length === 0) return null;
+
   return (
     <section className="bg-cream py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
