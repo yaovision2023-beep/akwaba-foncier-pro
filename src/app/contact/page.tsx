@@ -11,19 +11,19 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="bg-cream">
-      <section className="bg-forest-dark py-16 text-center">
+      <section className="bg-forest-dark pb-16 pt-36 text-center sm:pt-40">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-wider text-gold-light">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-gold-light">
             Parlons de votre projet
           </p>
-          <h1 className="mt-2 text-3xl font-bold text-white sm:text-4xl">Contact</h1>
+          <h1 className="mt-4 font-serif text-4xl text-white sm:text-5xl">Contact</h1>
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-4xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           <div className="rounded-xl border border-forest/10 bg-white p-6 sm:p-8">
-            <h2 className="text-lg font-bold text-forest">Envoyez-nous un message</h2>
+            <h2 className="font-serif text-xl text-forest">Envoyez-nous un message</h2>
             <div className="mt-6">
               <ContactForm />
             </div>
@@ -48,7 +48,7 @@ export default function ContactPage() {
             </a>
 
             <div className="rounded-xl border-2 border-gold/30 bg-gold/5 p-6">
-              <h3 className="font-semibold text-forest">
+              <h3 className="font-serif text-lg text-forest">
                 Votre sécurité, notre priorité
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-forest-light">

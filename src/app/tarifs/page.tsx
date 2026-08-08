@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PricingTable } from "@/components/pricing/PricingTable";
-import { TrustBadges } from "@/components/layout/TrustBadges";
+import { TrustBar } from "@/components/layout/TrustBar";
 
 export const metadata: Metadata = {
   title: "Grille tarifaire — Akwaba Foncier Pro",
@@ -11,26 +11,28 @@ export const metadata: Metadata = {
 export default function TarifsPage() {
   return (
     <div className="bg-cream">
-      <section className="bg-forest-dark py-16 text-center">
+      <section className="bg-forest-dark pb-16 pt-36 text-center sm:pt-40">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-wider text-gold-light">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-gold-light">
             Tarification transparente
           </p>
-          <h1 className="mt-2 text-3xl font-bold text-white sm:text-4xl">
+          <h1 className="mt-4 font-serif text-4xl text-white sm:text-5xl">
             Grille tarifaire
           </h1>
-          <p className="mt-4 text-cream/80">
+          <p className="mt-5 text-cream/80">
             Le prix dépend du niveau de sécurisation juridique du terrain au
             moment de la transaction.
           </p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <TrustBar variant="dark" />
+
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <PricingTable />
 
-        <div className="mt-12 rounded-xl border border-forest/10 bg-white p-6 sm:p-8">
-          <h2 className="text-lg font-bold text-forest">
+        <div className="mt-14 rounded-xl border border-forest/10 bg-white p-8">
+          <h2 className="font-serif text-xl text-forest">
             Qu&apos;est-ce que le parcours AFOR ?
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-forest-light">
@@ -42,10 +44,6 @@ export default function TarifsPage() {
             sécurisation juridique est forte — d&apos;où la différence de
             tarif entre les trois niveaux.
           </p>
-        </div>
-
-        <div className="mt-8 rounded-2xl border border-forest/10 bg-white p-6 sm:p-8">
-          <TrustBadges />
         </div>
       </section>
     </div>

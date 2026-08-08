@@ -47,7 +47,7 @@ export function ParcelCard({ parcel }: { parcel: Parcel }) {
         <span className="w-fit rounded bg-forest/5 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-forest-light">
           {getCategoryInfo(parcel.category).shortLabel}
         </span>
-        <h3 className="text-lg font-bold text-forest">{parcel.name}</h3>
+        <h3 className="font-serif text-xl text-forest">{parcel.name}</h3>
         <p className="text-sm text-forest-light">{parcel.location}</p>
         <p className="text-sm text-forest-light">{parcel.area}</p>
         <div className="mt-auto flex items-center justify-between pt-3">

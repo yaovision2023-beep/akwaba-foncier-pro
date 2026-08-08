@@ -8,8 +8,20 @@ import { whatsappLink } from "@/lib/constants";
 
 type FilterValue = ParcelCategory | "toutes";
 
-export function ParcelCategoryFilter({ parcels }: { parcels: Parcel[] }) {
-  const [active, setActive] = useState<FilterValue>("toutes");
+const VALID_CATEGORIES = new Set(CATEGORIES.map((c) => c.slug));
+
+function resolveInitial(value?: string): FilterValue {
+  return value && VALID_CATEGORIES.has(value as ParcelCategory) ? (value as ParcelCategory) : "toutes";
+}
+
+export function ParcelCategoryFilter({
+  parcels,
+  initialCategory,
+}: {
+  parcels: Parcel[];
+  initialCategory?: string;
+}) {
+  const [active, setActive] = useState<FilterValue>(() => resolveInitial(initialCategory));
 
   const counts = useMemo(() => {
     const map = new Map<FilterValue, number>();

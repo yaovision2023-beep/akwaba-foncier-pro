@@ -3,70 +3,53 @@ import { Reveal } from "@/components/motion/Reveal";
 
 const REASONS = [
   {
-    title: "Structure légalement enregistrée",
-    detail: `Akwaba Foncier Pro est une filiale de ${COMPANY.parentCompany}, enregistrée sous le RCCM ${COMPANY.rccm}.`,
+    title: "Structure enregistrée",
+    detail: `Filiale de ${COMPANY.parentCompany}, RCCM ${COMPANY.rccm}.`,
   },
   {
-    title: "Vérification systématique des titres",
-    detail:
-      "Chaque parcelle est contrôlée — certificat foncier, attestation villageoise ou ACD — avant toute mise en ligne sur le site.",
+    title: "Vérification systématique",
+    detail: "Certificat foncier, ACD ou attestation villageoise contrôlés avant publication.",
   },
   {
-    title: "Paiement exclusivement via notaire",
-    detail:
-      "Aucune somme n'est jamais encaissée directement par un intermédiaire : chaque transaction transite par un notaire partenaire.",
+    title: "Paiement via notaire",
+    detail: "Aucun intermédiaire n'encaisse directement une somme.",
   },
   {
     title: "Accompagnement diaspora",
-    detail:
-      "Achat à distance encadré étape par étape, pour sécuriser votre investissement même sans être présent en Côte d'Ivoire.",
+    detail: "Achat à distance encadré, étape par étape.",
   },
 ];
 
 export function TrustSection() {
   return (
-    <section className="bg-white py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-wider text-gold">
+    <section className="bg-white py-24">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 lg:px-8">
+        <Reveal>
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-gold">
             Notre engagement
           </p>
-          <h2 className="mt-2 text-3xl font-bold text-forest sm:text-4xl">
-            Pourquoi nous faire confiance
+          <h2 className="mt-4 font-serif text-4xl leading-[1.05] text-forest">
+            Pourquoi nous
+            <br />
+            faire confiance
           </h2>
+          <p className="mt-6 max-w-[38ch] text-sm leading-relaxed text-forest-light">
+            Chaque dossier est vérifié avant mise en ligne. Chaque paiement
+            transite exclusivement par un notaire partenaire — jamais
+            d&apos;argent encaissé directement.
+          </p>
         </Reveal>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {REASONS.map((reason, index) => (
-            <Reveal
-              key={reason.title}
-              delay={index * 0.08}
-              className="flex gap-4 rounded-xl border border-forest/10 bg-cream/50 p-6 transition-shadow hover:shadow-md"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                className="h-8 w-8 flex-shrink-0 text-gold"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.75"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 3l7 3.5v5c0 4.5-3 8-7 9.5-4-1.5-7-5-7-9.5v-5L12 3z"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              <div>
-                <h3 className="font-semibold text-forest">{reason.title}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-forest-light">
-                  {reason.detail}
-                </p>
-              </div>
-            </Reveal>
+        <Reveal delay={0.1} className="grid grid-cols-1 gap-px bg-forest/10 sm:grid-cols-2">
+          {REASONS.map((reason) => (
+            <div key={reason.title} className="bg-cream p-8">
+              <h3 className="font-serif text-lg text-forest">{reason.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-forest-light">
+                {reason.detail}
+              </p>
+            </div>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

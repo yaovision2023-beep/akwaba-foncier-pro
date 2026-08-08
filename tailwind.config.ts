@@ -24,6 +24,9 @@ const config: Config = {
         },
         cream: "#FAF7F2",
       },
+      fontFamily: {
+        serif: ["var(--font-fraunces)", "Georgia", "serif"],
+      },
     },
   },
   plugins: [],

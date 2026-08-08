@@ -12,15 +12,30 @@ export function LogoMark({ className = "h-10 w-10" }: { className?: string }) {
   );
 }
 
-export function Logo({ className = "" }: { className?: string }) {
+export function Logo({
+  className = "",
+  variant = "dark",
+}: {
+  className?: string;
+  variant?: "dark" | "light";
+}) {
+  const isLight = variant === "light";
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <LogoMark />
       <span className="flex flex-col leading-tight">
-        <span className="text-lg font-bold tracking-tight text-forest">
-          Akwaba Foncier <span className="text-gold">Pro</span>
+        <span
+          className={`font-serif text-lg tracking-tight transition-colors ${
+            isLight ? "text-white" : "text-forest"
+          }`}
+        >
+          Akwaba Foncier <span className="text-gold-light">Pro</span>
         </span>
-        <span className="text-[10px] font-medium uppercase tracking-wider text-forest-light">
+        <span
+          className={`text-[10px] font-medium uppercase tracking-wider transition-colors ${
+            isLight ? "text-cream/70" : "text-forest-light"
+          }`}
+        >
           Filiale de CIG
         </span>
       </span>

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Reveal } from "@/components/motion/Reveal";
+import { TrustBar } from "@/components/layout/TrustBar";
 
 export const metadata: Metadata = {
   title: "Qui sommes-nous — Akwaba Foncier Pro",
@@ -58,35 +60,39 @@ const SECTIONS: { id: string; title: string; paragraphs: string[] | null }[] = [
 export default function QuiSommesNousPage() {
   return (
     <div className="bg-cream">
-      <section className="bg-forest-dark py-16 text-center">
+      <section className="bg-forest-dark pb-16 pt-36 text-center sm:pt-40">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-wider text-gold-light">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-gold-light">
             Akwaba Foncier Pro
           </p>
-          <h1 className="mt-2 text-3xl font-bold text-white sm:text-4xl">
+          <h1 className="mt-4 font-serif text-4xl text-white sm:text-5xl">
             Qui sommes-nous
           </h1>
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl space-y-14 px-4 py-16 sm:px-6 lg:px-8">
-        {SECTIONS.map((section) => (
-          <div key={section.id} id={section.id}>
-            <h2 className="text-2xl font-bold text-forest">{section.title}</h2>
-            {section.paragraphs ? (
-              <div className="mt-4 space-y-4">
-                {section.paragraphs.map((p, i) => (
-                  <p key={i} className="text-sm leading-relaxed text-forest-light">
-                    {p}
-                  </p>
-                ))}
-              </div>
-            ) : (
-              <p className="mt-4 text-sm italic leading-relaxed text-forest-light/60">
-                Contenu en attente de rédaction.
-              </p>
-            )}
-          </div>
+      <TrustBar variant="dark" />
+
+      <section className="mx-auto max-w-4xl space-y-16 px-4 py-20 sm:px-6 lg:px-8">
+        {SECTIONS.map((section, index) => (
+          <Reveal key={section.id} delay={Math.min(index * 0.05, 0.2)}>
+            <div id={section.id} className="border-l-2 border-gold/40 pl-6 sm:pl-8">
+              <h2 className="font-serif text-2xl text-forest sm:text-3xl">{section.title}</h2>
+              {section.paragraphs ? (
+                <div className="mt-4 space-y-4">
+                  {section.paragraphs.map((p, i) => (
+                    <p key={i} className="text-sm leading-relaxed text-forest-light">
+                      {p}
+                    </p>
+                  ))}
+                </div>
+              ) : (
+                <p className="mt-4 text-sm italic leading-relaxed text-forest-light/60">
+                  Contenu en attente de rédaction.
+                </p>
+              )}
+            </div>
+          </Reveal>
         ))}
       </section>
     </div>

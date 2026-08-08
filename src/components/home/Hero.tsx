@@ -3,8 +3,15 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { LinkButton } from "@/components/ui/Button";
-import { TrustBadges } from "@/components/layout/TrustBadges";
 import { CATEGORIES } from "@/data/categories";
+import { siteStats } from "@/data/parcels";
+import { AnimatedCounter } from "@/components/motion/AnimatedCounter";
+
+const STATS = [
+  { value: siteStats.totalParcels, suffix: "", label: "Terrains vérifiés en ligne" },
+  { value: siteStats.verifiedPercent, suffix: "%", label: "Dossiers déjà sécurisés" },
+  { value: CATEGORIES.length, suffix: "", label: "Catégories d'opportunités" },
+];
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -21,14 +28,14 @@ export function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-h-[92vh] flex-col justify-center overflow-hidden bg-forest-dark px-4 py-20 sm:px-6 lg:px-8"
+      className="relative flex min-h-[92vh] flex-col justify-center overflow-hidden bg-forest-dark px-4 pb-16 pt-32 sm:px-6 lg:px-8"
     >
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.07]"
+        className="pointer-events-none absolute inset-0 opacity-[0.06]"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 20% 20%, white 1px, transparent 1px), radial-gradient(circle at 60% 70%, white 1px, transparent 1px)",
-          backgroundSize: "48px 48px, 64px 64px",
+            "linear-gradient(90deg, rgba(212,165,55,0.4) 1px, transparent 1px)",
+          backgroundSize: "64px 100%",
         }}
         aria-hidden="true"
       />
@@ -43,75 +50,72 @@ export function Hero() {
 
       <motion.div
         style={{ y: contentY, opacity: contentOpacity }}
-        className="relative mx-auto flex w-full max-w-4xl flex-col items-center text-center"
+        className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10"
       >
-        <motion.span
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-5 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-gold-light"
-        >
-          Filiale de CHIM IVOIRE GROUP SARL
-        </motion.span>
+        <div>
+          <motion.span
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-gold-light"
+          >
+            Filiale de CHIM IVOIRE GROUP SARL
+          </motion.span>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-4xl font-extrabold uppercase tracking-tight text-white sm:text-5xl lg:text-6xl"
-        >
-          Votre terrain idéal
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-6 max-w-2xl text-base leading-relaxed text-cream/85 sm:text-lg"
-        >
-          Terrain agricole, lot à bâtir, entrepôt ou résidence : trouvez une
-          opportunité foncière et immobilière sécurisée en Côte
-          d&apos;Ivoire — titres vérifiés, transactions encadrées par
-          notaire, accompagnement dédié à la diaspora comme aux acheteurs
-          locaux.
-        </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="font-serif text-[52px] leading-[0.98] tracking-tight text-white sm:text-7xl lg:text-[84px]"
+          >
+            Votre terrain
+            <br />
+            idéal
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="mt-8 max-w-[46ch] text-base leading-relaxed text-cream/80 sm:text-lg"
+          >
+            Terrain agricole, lot à bâtir, entrepôt ou résidence : trouvez une
+            opportunité foncière et immobilière sécurisée en Côte
+            d&apos;Ivoire — titres vérifiés, transactions encadrées par
+            notaire, accompagnement dédié à la diaspora comme aux acheteurs
+            locaux.
+          </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.25 }}
-          className="mt-6 flex flex-wrap items-center justify-center gap-2"
-        >
-          {CATEGORIES.map((cat) => (
-            <span
-              key={cat.slug}
-              className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium text-cream/80"
-            >
-              {cat.shortLabel}
-            </span>
-          ))}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-9 flex flex-col gap-3 sm:flex-row"
-        >
-          <LinkButton href="/parcelles" variant="primary" className="px-8 py-3.5 text-base">
-            Voir les parcelles disponibles
-          </LinkButton>
-          <LinkButton href="/comment-ca-marche" variant="ghost" className="px-8 py-3.5 text-base">
-            Comment ça marche
-          </LinkButton>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+            className="mt-9 flex flex-col gap-3 sm:flex-row"
+          >
+            <LinkButton href="/parcelles" variant="primary" className="px-8 py-3.5 text-base">
+              Voir les parcelles disponibles
+            </LinkButton>
+            <LinkButton href="/comment-ca-marche" variant="ghost" className="px-8 py-3.5 text-base">
+              Comment ça marche
+            </LinkButton>
+          </motion.div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-14 w-full rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:p-8"
+          className="border-t border-gold/30 pt-8 lg:justify-self-end lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0"
         >
-          <TrustBadges variant="dark" />
+          {STATS.map((stat, index) => (
+            <div key={stat.label} className={index > 0 ? "mt-8" : ""}>
+              <p className="font-serif text-5xl leading-none text-gold-light sm:text-6xl">
+                <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+              </p>
+              <p className="mt-2 text-xs font-medium uppercase tracking-wider text-cream/60">
+                {stat.label}
+              </p>
+            </div>
+          ))}
         </motion.div>
       </motion.div>
     </section>

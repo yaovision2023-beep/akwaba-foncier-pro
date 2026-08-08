@@ -19,11 +19,11 @@ export function PricingTable() {
               Sécurisation maximale
             </span>
           )}
-          <h3 className={`text-lg font-bold ${tier.highlight ? "text-white" : "text-forest"}`}>
+          <h3 className={`font-serif text-xl ${tier.highlight ? "text-white" : "text-forest"}`}>
             {tier.label}
           </h3>
           <p
-            className={`mt-2 text-3xl font-extrabold ${
+            className={`mt-2 font-serif text-4xl ${
               tier.highlight ? "text-gold-light" : "text-gold"
             }`}
           >

@@ -8,10 +8,10 @@ export function FeaturedParcels() {
     <section className="bg-cream py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-wider text-gold">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-gold">
             Nos parcelles phares
           </p>
-          <h2 className="mt-2 text-3xl font-bold text-forest sm:text-4xl">
+          <h2 className="mt-4 font-serif text-3xl text-forest sm:text-4xl">
             Des terrains sélectionnés et vérifiés
           </h2>
         </Reveal>

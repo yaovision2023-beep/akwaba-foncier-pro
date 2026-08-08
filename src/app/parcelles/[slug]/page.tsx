@@ -4,7 +4,7 @@ import Link from "next/link";
 import { parcels, getParcelBySlug } from "@/data/parcels";
 import { ParcelStatusBadge } from "@/components/parcels/ParcelStatusBadge";
 import { ParcelPlaceholder } from "@/components/parcels/ParcelPlaceholder";
-import { TrustBadges } from "@/components/layout/TrustBadges";
+import { TrustBar } from "@/components/layout/TrustBar";
 import { LinkButton } from "@/components/ui/Button";
 import { formatFcfa, whatsappLink } from "@/lib/constants";
 import { getCategoryInfo } from "@/data/categories";
@@ -36,21 +36,32 @@ export default function ParcelDetailPage({
 
   return (
     <div className="bg-cream">
-      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
-        <Link
-          href="/parcelles"
-          className="inline-flex items-center gap-1.5 text-sm font-medium text-forest hover:text-gold"
-        >
-          ← Toutes les parcelles
-        </Link>
+      <section className="bg-forest-dark pb-10 pt-36 sm:pt-40">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <Link
+            href="/parcelles"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-cream/70 hover:text-gold-light"
+          >
+            ← Toutes les parcelles
+          </Link>
+          <p className="mt-6 text-xs font-semibold uppercase tracking-[0.14em] text-gold-light">
+            {getCategoryInfo(parcel.category).label}
+          </p>
+          <h1 className="mt-3 font-serif text-4xl text-white sm:text-5xl">{parcel.name}</h1>
+          <p className="mt-2 text-cream/70">{parcel.location}</p>
+        </div>
+      </section>
 
-        <div className="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-5">
+      <TrustBar variant="dark" />
+
+      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-5">
           <div className="lg:col-span-3">
-            <div className="h-72 overflow-hidden rounded-xl sm:h-96">
+            <div className="h-72 overflow-hidden rounded-sm sm:h-96">
               <ParcelPlaceholder zone={parcel.zone} />
             </div>
             <div className="mt-8 rounded-xl border border-forest/10 bg-white p-6">
-              <h2 className="text-lg font-bold text-forest">Description</h2>
+              <h2 className="font-serif text-xl text-forest">Description</h2>
               <p className="mt-3 text-sm leading-relaxed text-forest-light">
                 {parcel.description}
               </p>
@@ -60,16 +71,8 @@ export default function ParcelDetailPage({
           <div className="lg:col-span-2">
             <div className="rounded-xl border border-forest/10 bg-white p-6">
               <ParcelStatusBadge status={parcel.verificationStatus} />
-              <h1 className="mt-3 text-2xl font-bold text-forest">{parcel.name}</h1>
-              <p className="mt-1 text-sm text-forest-light">{parcel.location}</p>
 
               <dl className="mt-6 space-y-4 border-t border-forest/10 pt-6">
-                <div className="flex justify-between text-sm">
-                  <dt className="text-forest-light">Catégorie</dt>
-                  <dd className="text-right font-medium text-forest">
-                    {getCategoryInfo(parcel.category).label}
-                  </dd>
-                </div>
                 <div className="flex justify-between text-sm">
                   <dt className="text-forest-light">Superficie</dt>
                   <dd className="text-right font-medium text-forest">{parcel.area}</dd>
@@ -96,14 +99,12 @@ export default function ParcelDetailPage({
                           <p className="text-sm font-medium text-forest">{lot.label}</p>
                           <p className="text-xs text-forest-light">{lot.size}</p>
                         </div>
-                        <p className="font-bold text-gold">{formatFcfa(lot.price)}</p>
+                        <p className="font-serif text-lg text-gold">{formatFcfa(lot.price)}</p>
                       </div>
                     ))}
                   </div>
                 ) : parcel.price ? (
-                  <p className="text-3xl font-extrabold text-forest">
-                    {formatFcfa(parcel.price)}
-                  </p>
+                  <p className="font-serif text-4xl text-forest">{formatFcfa(parcel.price)}</p>
                 ) : (
                   <p className="text-sm font-medium italic text-forest-light">
                     {parcel.priceNote}
@@ -126,10 +127,6 @@ export default function ParcelDetailPage({
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="mt-12 rounded-2xl border border-forest/10 bg-white p-6 sm:p-8">
-          <TrustBadges />
         </div>
       </div>
     </div>
