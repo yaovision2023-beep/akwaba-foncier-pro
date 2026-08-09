@@ -14,3 +14,6 @@ export function whatsappLink(message?: string) {
 export function formatFcfa(amount: number) {
   return new Intl.NumberFormat("fr-FR").format(amount) + " FCFA";
 }
+
+export const FORMSPREE_FORM_ID = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID ?? "";
+export const FORMSPREE_ENDPOINT = `https://formspree.io/f/${FORMSPREE_FORM_ID}`;

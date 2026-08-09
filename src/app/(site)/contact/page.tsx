@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { whatsappLink } from "@/lib/constants";
 
@@ -30,6 +31,26 @@ export default function ContactPage() {
           </div>
 
           <div className="flex flex-col gap-6">
+            <Link
+              href="/exprimez-votre-besoin"
+              className="flex items-center gap-4 rounded-xl border border-gold/30 bg-gold/5 p-6 transition-shadow hover:shadow-md"
+            >
+              <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gold text-white">
+                <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden="true">
+                  <path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" strokeLinecap="round" strokeLinejoin="round" />
+                  <circle cx="12" cy="9" r="2.5" />
+                </svg>
+              </span>
+              <div>
+                <p className="font-semibold text-forest">
+                  Vous êtes loin du pays ?
+                </p>
+                <p className="text-sm text-forest-light">
+                  Décrivez votre projet en détail, où que vous soyez
+                </p>
+              </div>
+            </Link>
+
             <a
               href={whatsappLink()}
               target="_blank"

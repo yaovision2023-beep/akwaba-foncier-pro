@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { TrustBar } from "@/components/layout/TrustBar";
 import { Reveal } from "@/components/motion/Reveal";
 
@@ -73,6 +74,14 @@ export default function CommentCaMarchePage() {
                 <p className="mt-2 text-sm leading-relaxed text-forest-light">
                   {step.description}
                 </p>
+                {index === 0 && (
+                  <Link
+                    href="/exprimez-votre-besoin"
+                    className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:underline"
+                  >
+                    Remplir le formulaire dédié →
+                  </Link>
+                )}
               </Reveal>
             </li>
           ))}
