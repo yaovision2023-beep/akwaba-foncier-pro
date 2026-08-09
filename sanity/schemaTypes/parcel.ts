@@ -106,6 +106,13 @@ export const parcel = defineType({
       of: [{ type: "image", options: { hotspot: true } }],
     }),
     defineField({
+      name: "video",
+      title: "Vidéo",
+      type: "file",
+      options: { accept: ".mp4" },
+      description: "Vidéo de présentation de la parcelle (format .mp4)",
+    }),
+    defineField({
       name: "description",
       title: "Description",
       type: "text",

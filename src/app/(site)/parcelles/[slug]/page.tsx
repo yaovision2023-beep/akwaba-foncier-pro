@@ -74,6 +74,20 @@ export default async function ParcelDetailPage({
                 <ParcelPlaceholder zone={parcel.zone} />
               )}
             </div>
+            {parcel.video && (
+              <div className="mt-8 overflow-hidden rounded-sm bg-black">
+                {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+                <video
+                  src={parcel.video}
+                  controls
+                  playsInline
+                  className="aspect-video w-full"
+                >
+                  Votre navigateur ne prend pas en charge la lecture vidéo.
+                </video>
+              </div>
+            )}
+
             <div className="mt-8 rounded-xl border border-forest/10 bg-white p-6">
               <h2 className="font-serif text-xl text-forest">Description</h2>
               <p className="mt-3 text-sm leading-relaxed text-forest-light">

@@ -14,6 +14,7 @@ const PARCEL_PROJECTION = `{
   priceNote,
   lots,
   "images": coalesce(images[].asset->url, []),
+  "video": video.asset->url,
   featured,
   description
 }`;

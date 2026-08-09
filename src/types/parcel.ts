@@ -25,6 +25,7 @@ export interface Parcel {
   priceNote?: string;
   lots?: ParcelLot[];
   images: string[];
+  video: string | null;
   featured: boolean;
   description: string;
 }
